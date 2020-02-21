@@ -21,7 +21,7 @@ int mostrarOpcFam() {
 	do {
 		cout << "\n1. Stark\n2. Lannister\n3. Targaryen\n: ";
 		cin >> f;
-	} while(f < 1 && f > 3);
+	} while (f < 1 || f > 3);
 	return f;
 }
 
@@ -192,6 +192,9 @@ void mostrarEjercito(int f) {
 	cout << "-----------------------------" << endl;
 }
 
+void Simulacion() {
+}
+
 int main() {
 	bool pass = true;
 	int op1;
@@ -249,6 +252,7 @@ int main() {
 					} while (op != 4);
 				} break;
 			case 2: {
+					Simulacion();
 				} break;
 			case 3: {
 					pass = false;
