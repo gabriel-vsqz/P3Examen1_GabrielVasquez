@@ -36,6 +36,9 @@ class Targaryen {
                 vector<Dragones> getEjercito() {
                         return ejercito;
                 }
+		void setEjercito(Dragones x) {
+                        ejercito.push_back(x);
+                }
                 int getBarcos() {
                         return barcos;
                 }

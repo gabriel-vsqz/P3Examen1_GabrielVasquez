@@ -6,6 +6,7 @@
 #include "GuardiaReal.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -100,7 +101,7 @@ void CrearSoldado(int ft) {
                 	                cout << "Defensa: ";
                         	        cin >> defensa;
 					PFamiliaNoble nuevo(nombre, simbolo, lema, ataque, defensa);
-					stark.getEjercito().push_back(nuevo);
+					stark.setEjercito(nuevo);
 				} else
 					cout << "\nYa hay la cantidad máxima de soldados en esta casa" << endl;
                         } break;
@@ -124,15 +125,15 @@ void CrearSoldado(int ft) {
 					switch (tipo) {
 						case 1: {
 								GuardiaReal nuevo(nombre, edad, ataque, defensa, GuardiaReal::CABALLERO);
-								lannister.getEjercito().push_back(nuevo);
+								lannister.setEjercito(nuevo);
 						        } break;
 						case 2: {
 								GuardiaReal nuevo(nombre, edad, ataque, defensa, GuardiaReal::JINETE);
-								lannister.getEjercito().push_back(nuevo);
+								lannister.setEjercito(nuevo);
 							} break;
 						case 3: {
 								GuardiaReal nuevo(nombre, edad, ataque, defensa, GuardiaReal::ARQUERO);
-								lannister.getEjercito().push_back(nuevo);
+								lannister.setEjercito(nuevo);
 							} break;
 					}
                                 } else
@@ -157,7 +158,7 @@ void CrearSoldado(int ft) {
                                         cout << "Defensa: ";
                                         cin >> defensa;
                                         Dragones nuevo(nombre, color, size, llama, ataque, defensa);
-                                        targaryen.getEjercito().push_back(nuevo);
+                                        targaryen.setEjercito(nuevo);
                                 } else
                                         cout << "\nYa hay la cantidad máxima de soldados en esta casa" << endl;
 
@@ -183,10 +184,12 @@ void mostrarEjercito(int f) {
 		case 3: {
 				cout << "----- Casa Targaryen -----" << endl;
                                 for (int i = 0; i < targaryen.getEjercito().size(); i++) {
- 					cout << targaryen.getEjercito().at(i).toString() << endl;
+					cout << "prueba" << endl;
+					cout << targaryen.getEjercito().at(i).toString() << endl;
                                 }
 			} break;
 	}
+	cout << "-----------------------------" << endl;
 }
 
 int main() {

@@ -36,6 +36,9 @@ class Lannister {
                 vector<GuardiaReal> getEjercito() {
                         return ejercito;
                 }
+		void setEjercito(GuardiaReal x) {
+                        ejercito.push_back(x);
+                }
 		int getDinero() {
 			return dinero;
 		}

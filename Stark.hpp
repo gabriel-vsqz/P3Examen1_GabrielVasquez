@@ -42,6 +42,9 @@ class Stark {
 		vector<PFamiliaNoble> getEjercito() {
 			return ejercito;
 		}
+		void setEjercito(PFamiliaNoble x) {
+			ejercito.push_back(x);
+		}
 		int getIntegrantes() {
                         return integrantes;
                 }
