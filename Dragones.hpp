@@ -36,6 +36,10 @@ class Dragones {
                 void setDllama(int dl) {
   			dllama = dl;
                 }
+		string toString() {
+			string impresion = "Nombre: " + nombre + "\nColor: " + color + "\nTamaño: " + to_string(size) + "\nDistancia de la LLama: " + to_string(dllama) +  "\nAtaque: " + to_string(ataque) + "\nDefensa: " + to_string(defensa);
+                        return impresion;
+                }
 		friend void Simulacion();
 };
 #endif

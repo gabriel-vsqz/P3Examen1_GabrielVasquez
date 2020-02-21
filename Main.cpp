@@ -165,6 +165,30 @@ void CrearSoldado(int ft) {
 	}
 }
 
+void mostrarEjercito(int f) {
+	cout << endl;
+	switch (f) {
+		case 1: {
+				cout << "----- Casa Stark -----" << endl;
+				for (int i = 0; i < stark.getEjercito().size(); i++) {
+					cout << stark.getEjercito().at(i).toString() << endl;
+				}
+			} break;
+		case 2: {
+				cout << "----- Casa Lannister -----" << endl;
+                                for (int i = 0; i < lannister.getEjercito().size(); i++) {
+                                        cout << lannister.getEjercito().at(i).toString() << endl;
+                                }
+			} break;
+		case 3: {
+				cout << "----- Casa Targaryen -----" << endl;
+                                for (int i = 0; i < targaryen.getEjercito().size(); i++) {
+ 					cout << targaryen.getEjercito().at(i).toString() << endl;
+                                }
+			} break;
+	}
+}
+
 int main() {
 	bool pass = true;
 	int op1;
@@ -206,6 +230,14 @@ int main() {
 										cout << "No hay familia creadas" << endl;
 								} break;
 							case 3: {
+									if (st == true || ln == true || tg == true) {
+										int family = mostrarOpcFam();
+										if ( (family == 1 && st == true) || (family == 2 && ln == true) || (family == 3 && tg == true) ) {
+											mostrarEjercito(family);
+										} else
+											cout << "\nLa Familia no ha sido creada" << endl;
+									} else
+										cout << "No hay familias creadas" <<  endl;
 								} break;
 							case 4: {} break;
 							default:

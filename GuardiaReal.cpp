@@ -10,5 +10,6 @@ GuardiaReal :: GuardiaReal(string n, int e, int a, int d, int t) {
         edad = e;
         ataque = a;
         defensa = d;
+	tipo = t;
 }
 

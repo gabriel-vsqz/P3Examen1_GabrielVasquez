@@ -30,6 +30,10 @@ class PFamiliaNoble {
 		void setLema(string lm) {
 			lema = lm;
 		}
+		string toString() {
+			string impresion = "Nombre: " + nombre + "\nSímbolo de Escudo: " + simbolo + "\nLema: " + lema + "\nAtaque: " + to_string(ataque) + "\nDefensa: " + to_string(defensa);
+			return impresion;
+		}
 		friend void Simulacion();
 };
 #endif

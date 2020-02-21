@@ -8,7 +8,7 @@ using namespace std;
 class GuardiaReal {
         private:
                 string nombre;
-		int edad, ataque, defensa;
+		int edad, ataque, defensa, tipo;
         public:
 		GuardiaReal();
 		GuardiaReal(string n, int e, int a, int d, int t);
@@ -27,6 +27,22 @@ class GuardiaReal {
 		void setEdad(int e) {
 			edad = e;
 		}
+		string toString() {
+			string type;
+			switch(tipo) {
+				case 1:
+					type = "Caballero";
+					break;
+				case 2:
+					type = "Jinete";
+					break;
+				case 3:
+					type = "Arquero";
+					break;
+			}
+			string impresion = "Nombre: " + nombre + "\nEdad: " + to_string(edad) + "\nTipo: " + type + "\nAtaque: " + to_string(ataque) + "\nDefensa: " + to_string(defensa); 
+                        return impresion;
+                }
 		friend void Simulacion();
 };
 #endif
