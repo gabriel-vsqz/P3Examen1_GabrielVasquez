@@ -36,17 +36,6 @@ class Dragones {
                 void setDllama(int dl) {
   			dllama = dl;
                 }
-		int getAtaque() {
-			return ataque;
-		}
-		void setAtaque(int a) {
-			ataque = a;
-		}
-                int getDefensa() {
-                        return defensa;
-                }
-                void setDefensa(int d) {
-                        defensa = d;
-                }
+		friend void Simulacion();
 };
 #endif

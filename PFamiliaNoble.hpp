@@ -30,17 +30,6 @@ class PFamiliaNoble {
 		void setLema(string lm) {
 			lema = lm;
 		}
-		int getAtaque() {
-			return ataque;
-		}
-		void setAtaque(int a) {
-			ataque = a;
-		}
-		int getDefensa() {
-			return defensa;
-		}
-		void setDefensa(int d) {
-			defensa = d;
-		}
+		friend void Simulacion();
 };
 #endif

@@ -3,6 +3,7 @@
 #include "Lannister.hpp"
 #include "GuardiaReal.hpp"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class Lannister {
         private:
                 string jefe, emblema, lema;
   		int dinero, integrantes, fuerza;
-                //GuardiaReal ejercito;
+                vector<GuardiaReal> ejercito;
         public:
                 Lannister();
                 Lannister(string j, string a, string lm, int d, int fm, int i);
@@ -32,12 +33,9 @@ class Lannister {
                 void setLema(string lm) {
                         lema = lm;
                 }
-                /*GuardiaReal getEjercito() {
+                vector<GuardiaReal> getEjercito() {
                         return ejercito;
                 }
-                void setEjercito(GuardiaReal x) {
-                        ejercito = x;
-                }*/
 		int getDinero() {
 			return dinero;
 		}

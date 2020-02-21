@@ -11,7 +11,7 @@ class Targaryen {
         private:
                 string reina, emblema, lema;
                 int barcos;
-                Dragones ejercito[10];
+                vector<Dragones> ejercito;
         public:
                 Targaryen();
 		Targaryen(string r, string a, string lm, int b);
@@ -33,12 +33,9 @@ class Targaryen {
                 void setLema(string lm) {
                         lema = lm;
                 }
-                /*GuardiaReal FamiliaNoble getEjercito() {
+                vector<Dragones> getEjercito() {
                         return ejercito;
                 }
-                void setEjercito(GuardiaReal x) {
-                        ejercito = x;
-                }*/
                 int getBarcos() {
                         return barcos;
                 }

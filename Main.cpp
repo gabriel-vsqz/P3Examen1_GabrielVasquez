@@ -81,6 +81,90 @@ void CrearFamilia(int tf) {
 	}
 }
 
+void CrearSoldado(int ft) {
+	cout << endl;
+        switch (ft) {
+                case 1: {
+	                   	cout << "----- Casa Stark ------" << endl;
+                               	if (stark.getEjercito().size() < 10) {
+			       		string nombre, simbolo, lema;
+                                	int ataque, defensa;
+                                	cout << "Nombre: ";
+	                                cin >> nombre;
+        	                        cout << "Símbolo de Escudo: ";
+                	                cin >> simbolo;
+                        	        cout << "Lema: ";
+                                	cin >> lema;
+	                                cout << "Ataque: ";
+        	                        cin >> ataque;
+                	                cout << "Defensa: ";
+                        	        cin >> defensa;
+					PFamiliaNoble nuevo(nombre, simbolo, lema, ataque, defensa);
+					stark.getEjercito().push_back(nuevo);
+				} else
+					cout << "\nYa hay la cantidad máxima de soldados en esta casa" << endl;
+                        } break;
+                case 2: {
+                                cout << "----- Casa Lannister ------" << endl;
+				if (lannister.getEjercito().size() < 10) {
+                                        string nombre;
+                                        int edad, tipo, ataque, defensa;
+                                        cout << "Nombre: ";
+                                        cin >> nombre;
+                                        cout << "Edad: ";
+                                        cin >> edad;
+                                        do {
+						cout << "---Tipo de Soldado---\n1. Caballero\n2. Jinete\n3. Arquero\n: ";
+                                        	cin >> tipo;
+					} while (tipo < 1 && tipo > 3);
+                                        cout << "Ataque: ";
+                                        cin >> ataque;
+                                        cout << "Defensa: ";
+                                        cin >> defensa;
+					switch (tipo) {
+						case 1: {
+								GuardiaReal nuevo(nombre, edad, ataque, defensa, GuardiaReal::CABALLERO);
+								lannister.getEjercito().push_back(nuevo);
+						        } break;
+						case 2: {
+								GuardiaReal nuevo(nombre, edad, ataque, defensa, GuardiaReal::JINETE);
+								lannister.getEjercito().push_back(nuevo);
+							} break;
+						case 3: {
+								GuardiaReal nuevo(nombre, edad, ataque, defensa, GuardiaReal::ARQUERO);
+								lannister.getEjercito().push_back(nuevo);
+							} break;
+					}
+                                } else
+                                        cout << "\nYa hay la cantidad máxima de soldados en esta casa" << endl;
+
+                        } break;
+                case 3: {                                
+                                cout << "----- Casa Targaryen ------" << endl;
+                                if (targaryen.getEjercito().size() < 10) {
+                                        string nombre, color;
+                                        int llama, size, ataque, defensa;
+                                        cout << "Nombre: ";
+                                        cin >> nombre;
+                                        cout << "Color: ";
+                                        cin >> color;
+                                        cout << "Tamaño: ";
+                                        cin >> size;
+					cout << "Distancia de la LLama: ";
+					cin >> llama;
+                                        cout << "Ataque: ";
+                                        cin >> ataque;
+                                        cout << "Defensa: ";
+                                        cin >> defensa;
+                                        Dragones nuevo(nombre, color, size, llama, ataque, defensa);
+                                        targaryen.getEjercito().push_back(nuevo);
+                                } else
+                                        cout << "\nYa hay la cantidad máxima de soldados en esta casa" << endl;
+
+			} break;
+	}
+}
+
 int main() {
 	bool pass = true;
 	int op1;
@@ -111,7 +195,15 @@ int main() {
 										cout << "Todas las familias ya fueron creadas" << endl;
 								} break;
 							case 2: {
-
+									if (st == true || ln == true || tg == true) {
+										int family = mostrarOpcFam();
+										if ( (family == 1 && st == true) || (family == 2 && ln == true) || (family == 3 && tg == true) ) {
+											CrearSoldado(family);
+											cout << "\nSoldado enlistado para batalla" << endl;
+										} else
+											cout << "\nLa familia " << family << " no ha sido creada" << endl;
+									} else
+										cout << "No hay familia creadas" << endl;
 								} break;
 							case 3: {
 								} break;

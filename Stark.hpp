@@ -3,6 +3,7 @@
 #include "Stark.hpp"
 #include "PFamiliaNoble.hpp"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class Stark {
         private:
 		string jefe, emblema, lema;
 		int lobos, integrantes;
-		//PFamiliaNoble ejercito;
+		vector<PFamiliaNoble> ejercito;
         public:
 		Stark();
 		Stark(string j, int lb, string a, string lm, int i);
@@ -38,12 +39,9 @@ class Stark {
                 void setLema(string lm) {
                         lema = lm;
                 }
-		/*PFamiliaNoble getEjercito() {
+		vector<PFamiliaNoble> getEjercito() {
 			return ejercito;
 		}
-		void setEjercito(PFamiliaNoble x) {
-			ejercito = x;
-		}*/
 		int getIntegrantes() {
                         return integrantes;
                 }

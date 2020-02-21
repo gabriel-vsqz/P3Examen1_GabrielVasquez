@@ -11,7 +11,10 @@ class GuardiaReal {
 		int edad, ataque, defensa;
         public:
 		GuardiaReal();
-		GuardiaReal(string n, int e, int a, int d);
+		GuardiaReal(string n, int e, int a, int d, int t);
+		static const int CABALLERO = 1;
+		static const int JINETE = 2;
+		static const int ARQUERO = 3;
 		string getNombre() {
 			return nombre;
 		}
@@ -24,18 +27,7 @@ class GuardiaReal {
 		void setEdad(int e) {
 			edad = e;
 		}
-		int getAtaque() {
-			return ataque;
-		}
-		void setAtaque(int a) {
-			ataque = a;
-		}
-		int getDefensa() {
-			return defensa;
-		}
-		void setDefensa(int d) {
-			defensa = d;
-		}
+		friend void Simulacion();
 };
 #endif
 
