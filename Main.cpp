@@ -261,13 +261,13 @@ void Simulacion() {
                 }
 		h2 = "---House Targaryen---";
         }
-	while (tdefense1 <= 0 || tdefense2 <= 0) {
+	do {
 		cout << h1 << ":\nAtaque: " << tattack1 << "\nDefensa: " << (tdefense1 - tattack2) << endl;
 		cout << h2 << ":\nAtaque: " << tattack2 << "\nDefensa: " << (tdefense2 - tattack1) << endl;
-	}
-	if (tdefense1 <= 0) {
+	} while (tdefense1 > 0 || tdefense2 > 0);
+	if (tdefense1 < tdefense2) {
 		cout << "El trono de hierro le pertenece a: " << h2 << endl;
-	} else if (tdefense2 <= 0) {
+	} else if (tdefense2 < tdefense1) {
 		cout << "El trono de hierro le pertenece a: " << h1 << endl;
 	} else {
 		cout << "La batalla no tuvo un buen fin" << endl;
