@@ -183,7 +183,6 @@ void mostrarEjercito(int f) {
 		case 3: {
 				cout << "----- Casa Targaryen -----" << endl;
                                 for (int i = 0; i < targaryen.getEjercito().size(); i++) {
-					cout << "prueba" << endl;
 					cout << targaryen.getEjercito().at(i).toString() << endl;
                                 }
 			} break;
@@ -263,8 +262,8 @@ void Simulacion() {
 		h2 = "---House Targaryen---";
         }
 	while (tdefense1 <= 0 || tdefense2 <= 0) {
-		cout << h1 << ":\nAtaque: " << tattack1 << "\nDefensa: " << tdefense1 << endl;
-		cout << h2 << ":\nAtaque: " << tattack2 << "\nDefensa: " << (tdefense2-tattack1) << endl;
+		cout << h1 << ":\nAtaque: " << tattack1 << "\nDefensa: " << (tdefense1 - tattack2) << endl;
+		cout << h2 << ":\nAtaque: " << tattack2 << "\nDefensa: " << (tdefense2 - tattack1) << endl;
 	}
 	if (tdefense1 <= 0) {
 		cout << "El trono de hierro le pertenece a: " << h2 << endl;
