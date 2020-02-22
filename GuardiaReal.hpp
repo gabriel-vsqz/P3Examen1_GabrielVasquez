@@ -46,4 +46,3 @@ class GuardiaReal {
 		friend void Simulacion();
 };
 #endif
-

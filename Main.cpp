@@ -6,7 +6,6 @@
 #include "GuardiaReal.hpp"
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -193,7 +192,6 @@ void mostrarEjercito(int f) {
 }
 
 bool validar(int v) {
-	//st, ln, tg
 	if (v == 1 && st == true) {
 		return true;
 	} else if (v == 2 && ln == true) {
@@ -206,10 +204,14 @@ bool validar(int v) {
 }
 
 void Simulacion() {
-	if ( (st == true && ln == true) || (st == true && tg == true) || (ln == true && tg == true) ) {
+	bool any = true;
+	int fx1, fx2;
+	if ( stark.getEjercito().empty() || lannister.getEjercito().empty() || targaryen.getEjercito().empty() ) {
+		any = false;
+	}
+	if ( (st == true && ln == true) || (st == true && tg == true) || (ln == true && tg == true) && any == true) {
 		cout << "\n----- Batalla por el Trono de Hierro -----" << endl;
 		cout << "\n1. Stark\n2. Lannister\n3. Targaryen\n";
-		int fx1, fx2;
 		do {
 			cout << "Escoja Familia 1: ";
 			cin >> fx1;
@@ -218,6 +220,58 @@ void Simulacion() {
 			cout << "Escoja Familia 2: ";
                         cin >> fx2;
 		} while(fx2 < 1 || fx2 > 3 || fx2 == fx1 || validar(fx2) == false);
+	}
+	int tattack1 = 0, tattack2 = 0;
+	int tdefense1 = 0, tdefense2 = 0;
+	string h1, h2;
+	if (fx1 == 1) {
+		for (int i = 0; i < stark.getEjercito().size(); i++) {
+			tattack1 += stark.getEjercito().at(i).ataque;
+			tdefense1 += stark.getEjercito().at(i).defensa;
+		}
+		h1 = "---House Stark--";
+	} else if (fx1 == 2) {
+		for (int i = 0; i < lannister.getEjercito().size(); i++) {
+                        tattack1 += lannister.getEjercito().at(i).ataque;
+                        tdefense1 += lannister.getEjercito().at(i).defensa;
+                }
+		h1 = "---House Lannister---";
+	} else if (fx1 == 3) {
+		for (int i = 0; i < targaryen.getEjercito().size(); i++) {
+                        tattack1 += targaryen.getEjercito().at(i).ataque;
+                        tdefense1 += targaryen.getEjercito().at(i).defensa;
+                }
+		h1 = "---House Targaryen---";
+	}
+	if (fx2 == 1) {
+                for (int i = 0; i < stark.getEjercito().size(); i++) {
+                        tattack2 += stark.getEjercito().at(i).ataque;
+                        tdefense2 += stark.getEjercito().at(i).defensa;
+                }
+		h2 = "---House Stark---";
+        } else if (fx2 == 2) {
+                for (int i = 0; i < lannister.getEjercito().size(); i++) {
+                        tattack2 += lannister.getEjercito().at(i).ataque;
+                        tdefense2 += lannister.getEjercito().at(i).defensa;
+                }
+		h2 = "---House Lannister---";
+        } else if (fx2 == 3) {
+                for (int i = 0; i < targaryen.getEjercito().size(); i++) {
+                        tattack2 += targaryen.getEjercito().at(i).ataque;
+                        tdefense2 += targaryen.getEjercito().at(i).defensa;
+                }
+		h2 = "---House Targaryen---";
+        }
+	while (tdefense1 <= 0 || tdefense2 <= 0) {
+		cout << h1 << ":\nAtaque: " << tattack1 << "\nDefensa: " << tdefense1 << endl;
+		cout << h2 << ":\nAtaque: " << tattack2 << "\nDefensa: " << (tdefense2-tattack1) << endl;
+	}
+	if (tdefense1 <= 0) {
+		cout << "El trono de hierro le pertenece a: " << h2 << endl;
+	} else if (tdefense2 <= 0) {
+		cout << "El trono de hierro le pertenece a: " << h1 << endl;
+	} else {
+		cout << "La batalla no tuvo un buen fin" << endl;
 	}
 }
 
@@ -259,7 +313,7 @@ int main() {
 										} else
 											cout << "\nLa familia " << family << " no ha sido creada" << endl;
 									} else
-										cout << "No hay familia creadas" << endl;
+										cout << "No hay familias creadas" << endl;
 								} break;
 							case 3: {
 									if (st == true || ln == true || tg == true) {
