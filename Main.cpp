@@ -117,7 +117,7 @@ void CrearSoldado(int ft) {
                                         do {
 						cout << "---Tipo de Soldado---\n1. Caballero\n2. Jinete\n3. Arquero\n: ";
                                         	cin >> tipo;
-					} while (tipo < 1 && tipo > 3);
+					} while (tipo < 1 || tipo > 3);
                                         cout << "Ataque: ";
                                         cin >> ataque;
                                         cout << "Defensa: ";
@@ -192,7 +192,33 @@ void mostrarEjercito(int f) {
 	cout << "-----------------------------" << endl;
 }
 
+bool validar(int v) {
+	//st, ln, tg
+	if (v == 1 && st == true) {
+		return true;
+	} else if (v == 2 && ln == true) {
+		return true;
+	} else if (v == 3 && tg == true) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 void Simulacion() {
+	if ( (st == true && ln == true) || (st == true && tg == true) || (ln == true && tg == true) ) {
+		cout << "\n----- Batalla por el Trono de Hierro -----" << endl;
+		cout << "\n1. Stark\n2. Lannister\n3. Targaryen\n";
+		int fx1, fx2;
+		do {
+			cout << "Escoja Familia 1: ";
+			cin >> fx1;
+		} while(fx1 < 1 || fx1 > 3 || validar(fx1) == false);
+		do {
+			cout << "Escoja Familia 2: ";
+                        cin >> fx2;
+		} while(fx2 < 1 || fx2 > 3 || fx2 == fx1 || validar(fx2) == false);
+	}
 }
 
 int main() {
